@@ -110,8 +110,7 @@ def compute_features_learner(
     # Note: In Fastai, for DatasetType.Train, only the output of complete minibatches is computed. Ie if one has 101 images,
     # and uses a minibatch size of 16, then len(feats) is 96 and not 101. For DatasetType.Valid this is not the case,
     # and len(feats) is as expected 101. A way around this is to use DatasetType.Fix instead when referring to the training set.
-    # See e.g. issue: https://forums.fast.ai/t/get-preds-returning-less-results-than-length-of-original-dataset/34148
-
+    # See e.g. issue: https://forums.fast.ai/t/get-preds-returning-less-results-than-length-of-original-dataset/34148 
     if dataset_type == DatasetType.Train or dataset_type == DatasetType.Fix:
         dataset_type = (
             DatasetType.Fix
@@ -125,6 +124,9 @@ def compute_features_learner(
         raise Exception(
             "Dataset_type needs to be of type DatasetType.Train, DatasetType.Valid, DatasetType.Test or DatasetType.Fix."
         )
+
+    # Update what data the learner object is using
+    learn.data = data
 
     # Compute features
     featurizer = SaveFeatures(embedding_layer)
