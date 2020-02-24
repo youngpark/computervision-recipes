@@ -62,7 +62,7 @@ jobs:
   - name  : 'junitxml'
     value : 'reports/test-int.xml'
   - name  : 'testmarkers'
-    value : '"notebooks and not spark and not gpu and not azuremlnotebooks"'
+    value : '"notebooks and not spark and gpu and not azuremlnotebooks"'
   - name  : 'expname'
     value : 'nightly-int-test-linux-gpu'
   - name  : 'prtag'
