@@ -4,7 +4,7 @@
 variables:
 - group: AzureMLConfig
 - name  : 'test'
-  value : '.ci/run_pytest.py'
+  value : 'tests/.ci/run_pytest.py'
 - name  : 'maxnodes'
   value : 4
 - name  : 'clustername'
@@ -20,21 +20,7 @@ variables:
 - name  : 'wsname'
   value : 'cvws'
 
-
-# schedules:
-# - cron: "56 22 * * *"
-#   displayName: Daily run
-#   branches:
-#     include:
-#     - master
-#     - staging
-#   always: true
-
 trigger: none
-
-# pr:
-# - staging 
-# - master
 
 jobs:
 - job: Smoke
