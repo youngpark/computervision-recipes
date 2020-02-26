@@ -4,9 +4,9 @@
 variables:
 - group: AzureMLConfig
 - name  : 'resource_group'
-  value : 'amlnotebookrg'
+  value : 'cvbp_project_resources'
 - name  : 'workspace_name'
-  value : 'amlnotebookws'
+  value : 'cvws'
 - name  : 'workspace_region'
   value : 'eastus2'
 - name  : 'junitxml'
@@ -44,19 +44,6 @@ jobs:
       pytest -q --ignore=contrib --subscription_id=$(subscriptionid) --resource_group=$(resource_group) --workspace_name=$(workspace_name) --workspace_region=$(workspace_region) --junitxml $(junitxml) -m azuremlnotebooks
     displayName: 'Run AzureML notebook tests'
   
-  - bash: |
-        echo Ensure Resource Group Deletion $(resource_group)
-        existResponse=$(az group exists -n $(resource_group))
-        if [ "$existResponse" == "true" ]; then
-          echo Deleting project resource group
-          az group delete --name $(resource_group) --yes
-        else
-          echo Project resource group did not exist
-        fi
-        echo Done Cleanup
-    displayName: 'Cleanup Task'
-    condition: always()
-
   - task: PublishTestResults@2
     displayName: 'Publish Test Results **/test-*.xml'
     inputs:
