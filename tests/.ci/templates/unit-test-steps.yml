@@ -2,6 +2,10 @@
 steps:
 
 - bash: |
+    nvidia-smi -r
+  displayName: Reset nvidia GPU memory
+
+- bash: |
     echo "##vso[task.prependpath]/data/anaconda/bin"
   displayName: Add Conda to PATH
 
