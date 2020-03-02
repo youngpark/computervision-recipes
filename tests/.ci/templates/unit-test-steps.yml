@@ -2,6 +2,10 @@
 steps:
 
 - bash: |
+    sudo nvidia-smi
+  displayName: Print nvidia GPU information
+
+- bash: |
     sudo nvidia-smi -r
   displayName: Reset nvidia GPU memory
 
