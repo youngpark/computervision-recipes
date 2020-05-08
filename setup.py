@@ -18,11 +18,11 @@ setup(
     description="Computer Vision Utilities",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/microsoft/ComputerVision",
+    url="https://github.com/microsoft/computervision-recipes",
     project_urls={
-        "Bug Tracker": "https://github.com/microsoft/ComputerVision/issues",
-        "Source Code": "https://github.com/microsoft/ComputerVision",
-        "Documentation": "https://github.com/microsoft/ComputerVision",
+        "Bug Tracker": "https://github.com/microsoft/computervision-recipes/issues",
+        "Source Code": "https://github.com/microsoft/computervision-recipes",
+        "Documentation": "https://github.com/microsoft/computervision-recipes",
     },
     author="CVDev Team at Microsoft",
     classifiers=[
@@ -41,7 +41,7 @@ setup(
     # * Make sure to sync with environment.yml if any dependencies or
     #   versions changed.
     install_requires=[
-        "azureml-sdk[notebooks,contrib]>=1.0.30",  # requires ipykernel, papermill, jupyter-core, jupyter-client
+        "azureml-defaults",  # requires ipykernel, papermill, jupyter-core, jupyter-client
         "bqplot",
         "fastai==1.0.48",  # requires pytorch, torchvision, nvidia-ml-py3
         "scikit-learn>=0.19.1",
